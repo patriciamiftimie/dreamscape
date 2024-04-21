@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "148650422929",
+    "project_id": "dreamscape-d519d",
+    "storage_bucket": "dreamscape-d519d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:148650422929:android:8c553c01dab3d1b8630530",
+        "android_client_info": {
+          "package_name": "com.example.dreamscape"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRtohWYof7KFipCsIXhYwKH-G_oS5cjNw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
