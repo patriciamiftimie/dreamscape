@@ -16,7 +16,7 @@ class MainPage extends StatefulWidget {
 
 //home screen state
 class _MainPageState extends State<MainPage> {
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
 
   late List<Widget> _pages;
 
@@ -36,7 +36,7 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'dreamscape',
+          'DreamScape',
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
         backgroundColor: customLilac,
@@ -55,11 +55,11 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_month_rounded), label: 'Dashboard'),
+              icon: Icon(Icons.home_rounded), label: 'Dashboard'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.home_rounded), label: 'Environment'),
+              icon: Icon(Icons.thermostat), label: 'Controls'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_basket_rounded), label: 'Health'),
+              icon: Icon(Icons.bedtime_rounded), label: 'Health'),
           BottomNavigationBarItem(
               icon: Icon(Icons.settings_rounded), label: 'Settings'),
         ],

@@ -11,79 +11,116 @@ class EnvironmentScreen extends StatefulWidget {
 }
 
 class _EnvironmentScreenState extends State<EnvironmentScreen> {
+  double _temperature = 20.0;
+  double _lightIntensity = 50.0;
+  double _humidity = 40.0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Environment'),
-      ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            const Padding(
-              padding: EdgeInsets.all(8.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
               child: Card(
                 child: Column(
                   children: <Widget>[
                     ListTile(
-                      title: Text('Real-time Overview'),
-                      subtitle: Text('Current environmental conditions'),
+                      title: Text('Manual Controls'),
+                      subtitle: Text('Adjust your environment settings'),
                     ),
-                    ListTile(
-                      leading: Icon(Icons.thermostat_outlined),
-                      title: Text('Temperature'),
-                      subtitle: Text('22°C'),
+                    Slider(
+                      value: _temperature,
+                      min: 0,
+                      max: 40,
+                      divisions: 80,
+                      label: '${_temperature.toStringAsFixed(1)} °C',
+                      onChanged: (double value) {
+                        setState(() {
+                          _temperature = value;
+                        });
+                      },
                     ),
-                    ListTile(
-                      leading: Icon(Icons.water_drop),
-                      title: Text('Humidity'),
-                      subtitle: Text('45%'),
+                    Slider(
+                      value: _lightIntensity,
+                      min: 0,
+                      max: 100,
+                      divisions: 100,
+                      label: '${_lightIntensity.toStringAsFixed(1)}%',
+                      onChanged: (double value) {
+                        setState(() {
+                          _lightIntensity = value;
+                        });
+                      },
                     ),
-                    ListTile(
-                      leading: Icon(Icons.wb_sunny),
-                      title: Text('Light Level'),
-                      subtitle: Text('Moderate'),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.spa),
-                      title: Text('Aromatherapy Diffuser'),
-                      subtitle: Text('On'),
+                    Slider(
+                      value: _humidity,
+                      min: 0,
+                      max: 100,
+                      divisions: 100,
+                      label: '${_humidity.toStringAsFixed(1)}%',
+                      onChanged: (double value) {
+                        setState(() {
+                          _humidity = value;
+                        });
+                      },
                     ),
                   ],
                 ),
               ),
             ),
-            const Card(
+            Card(
               child: ListTile(
-                title: Text('Sleep Quality Snapshot'),
-                subtitle: Text('Last night: 7.5 hours - Good'),
+                title: Text('Schedules'),
+                subtitle: Text('Set up and manage automatic adjustments'),
+                onTap: () {
+                  // Navigation to schedule management page
+                },
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            Card(
+              child: ListTile(
+                title: Text('Scenes'),
+                subtitle: Text('Select or create scenes'),
+                onTap: () {
+                  // Navigation to scenes management page
+                },
+              ),
+            ),
+            Card(
+              child: ExpansionTile(
+                title: Text('Aromatherapy Control'),
                 children: <Widget>[
-                  ElevatedButton(
-                    onPressed: () {
-                      // Add functionality for "Turn off all devices"
+                  DropdownButton<String>(
+                    value: null,
+                    hint: Text('Select Oil'),
+                    onChanged: (String? newValue) {
+                      // Update the selected oil
                     },
-                    child: const Text('Turn Off All Devices'),
+                    items: <String>[
+                      'Lavender',
+                      'Eucalyptus',
+                      'Peppermint',
+                      'Rosemary'
+                    ].map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Add functionality for "Good Night Mode"
+                  Slider(
+                    value: 30.0,
+                    min: 0,
+                    max: 100,
+                    divisions: 100,
+                    label: '30%',
+                    onChanged: (double value) {
+                      // Update the intensity
                     },
-                    child: const Text('Good Night Mode'),
                   ),
                 ],
-              ),
-            ),
-            const Card(
-              child: ListTile(
-                title: Text('Notifications / Alerts'),
-                subtitle:
-                    Text('Consider lowering the room temperature tonight.'),
               ),
             ),
           ],

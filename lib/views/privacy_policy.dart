@@ -7,7 +7,7 @@ class PrivacyPolicyPage extends StatelessWidget {
   const PrivacyPolicyPage({super.key});
 
   Future<String> loadAsset() async {
-    return await rootBundle.loadString('images/privacy_policy.txt');
+    return await rootBundle.loadString('assets/privacy_policy.txt');
   }
 
   @override
@@ -16,7 +16,7 @@ class PrivacyPolicyPage extends StatelessWidget {
       appBar: AppBar(
           title: const Text(
             'Privacy Policy',
-            style: TextStyle(fontSize: 30),
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
           backgroundColor: customLilac,
           foregroundColor: customWhite,

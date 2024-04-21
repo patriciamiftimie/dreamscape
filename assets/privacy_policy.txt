@@ -1,12 +1,8 @@
-DreamScape Privacy Policy
-
 Last Updated: 21/04/2024
-
-1. Introduction
 
 Thank you for choosing DreamScape. Your privacy and the security of your data are very important to us. This Privacy Policy outlines our practices concerning the collection, use, and protection of your information through the DreamScape app.
 
-2. Information We Collect
+1. Information We Collect
 
 a. Personal Information:
    - Account Data: When you create an account, we collect your email address, password, and username.
@@ -21,7 +17,7 @@ c. Health Data:
 d. Usage Data:
    - Information on how you use the app, settings you change, and times of operation.
 
-3. How We Use Your Information
+2. How We Use Your Information
 
 Your information helps us:
    - Provide, operate, and maintain the DreamScape system.
@@ -30,29 +26,28 @@ Your information helps us:
    - Develop new products, services, features, and functionalities.
    - Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the app, and for marketing and promotional purposes.
 
-4. How We Share Your Information
+3. How We Share Your Information
 
 We may share your information with:
    - Service providers who perform services on our behalf.
    - Third parties if we believe that sharing is necessary to enforce our terms and conditions, protect our rights or comply with legal obligations.
    - Affiliates or in the event of a merger, acquisition, or asset sale.
 
-5. Data Storage and Security
+4. Data Storage and Security
 
 We use robust security measures to protect your data from unauthorised access, alteration, disclosure, or destruction. Your data is stored on secure servers, and any sensitive data is encrypted.
 
-6. Your Data Protection Rights
+5. Your Data Protection Rights
 
 Depending on your location, you may have rights including:
    - Accessing, correcting, updating, or requesting deletion of your personal information.
    - Objecting to processing of your personal information, asking us to restrict processing or requesting portability of your information.
    - Withdrawing consent at any time if we have collected and processed your personal information with your consent.
 
-7. Changes to This Privacy Policy
+6. Changes to This Privacy Policy
 
 We may update this policy from time to time. The updated version will be indicated by an updated "Effective Date" and the updated version will be effective as soon as it is accessible.
 
-8. Contact Us
+7. Contact Us
 
-If you have any questions or concerns about our Privacy Policy, please contact us at [Your Contact Information].
-"""
+If you have any questions or concerns about our Privacy Policy, please contact us at pxi092@student.bham.ac.uk.

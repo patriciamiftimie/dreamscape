@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 class HealthScreen extends StatefulWidget {
   const HealthScreen({super.key, required this.title, required this.uid});
@@ -11,84 +12,99 @@ class HealthScreen extends StatefulWidget {
 }
 
 class _HealthScreenState extends State<HealthScreen> {
+  late List<HealthData> heartRateData;
+  late List<HealthData> temperatureData;
+
+  @override
+  void initState() {
+    super.initState();
+    heartRateData = getHeartRateData();
+    temperatureData = getTemperatureData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Health'),
-      ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Card(
-                child: Column(
-                  children: <Widget>[
-                    ListTile(
-                      title: Text('Real-time Overview'),
-                      subtitle: Text('Current environmental conditions'),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.thermostat_outlined),
-                      title: Text('Temperature'),
-                      subtitle: Text('22°C'),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.water_drop),
-                      title: Text('Humidity'),
-                      subtitle: Text('45%'),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.wb_sunny),
-                      title: Text('Light Level'),
-                      subtitle: Text('Moderate'),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.spa),
-                      title: Text('Aromatherapy Diffuser'),
-                      subtitle: Text('On'),
-                    ),
-                  ],
-                ),
-              ),
+            SfCartesianChart(
+              title: ChartTitle(text: 'Heart Rate Trends'),
+              legend: Legend(isVisible: true),
+              primaryXAxis: CategoryAxis(),
+              tooltipBehavior: TooltipBehavior(enable: true),
+              series: <LineSeries<HealthData, String>>[
+                LineSeries<HealthData, String>(
+                  dataSource: heartRateData,
+                  xValueMapper: (HealthData data, _) => data.time,
+                  yValueMapper: (HealthData data, _) => data.value,
+                  name: 'Heart Rate',
+                  markerSettings: MarkerSettings(isVisible: true),
+                )
+              ],
             ),
-            const Card(
+            SfCartesianChart(
+              title: ChartTitle(text: 'Skin Temperature Trends'),
+              legend: Legend(isVisible: true),
+              primaryXAxis: CategoryAxis(),
+              tooltipBehavior: TooltipBehavior(enable: true),
+              series: <LineSeries<HealthData, String>>[
+                LineSeries<HealthData, String>(
+                  dataSource: temperatureData,
+                  xValueMapper: (HealthData data, _) => data.time,
+                  yValueMapper: (HealthData data, _) => data.value,
+                  name: 'Temperature',
+                  markerSettings: MarkerSettings(isVisible: true),
+                )
+              ],
+            ),
+            Card(
               child: ListTile(
-                title: Text('Sleep Quality Snapshot'),
-                subtitle: Text('Last night: 7.5 hours - Good'),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  ElevatedButton(
-                    onPressed: () {
-                      // Add functionality for "Turn off all devices"
-                    },
-                    child: const Text('Turn Off All Devices'),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Add functionality for "Good Night Mode"
-                    },
-                    child: const Text('Good Night Mode'),
-                  ),
-                ],
-              ),
-            ),
-            const Card(
-              child: ListTile(
-                title: Text('Notifications / Alerts'),
+                title: Text('Sleep Analysis'),
                 subtitle:
-                    Text('Consider lowering the room temperature tonight.'),
+                    Text('Detailed breakdown of sleep stages and quality.'),
               ),
+            ),
+            Card(
+              child: ListTile(
+                title: Text('Recommendations'),
+                subtitle: Text('Personalized tips based on your health data.'),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Functionality to sync with other health apps
+              },
+              child: Text('Sync with Health Apps'),
             ),
           ],
         ),
       ),
     );
   }
+
+  List<HealthData> getHeartRateData() {
+    return [
+      HealthData('12:00 AM', 70),
+      HealthData('1:00 AM', 72),
+      HealthData('2:00 AM', 68),
+      // Add more data points here
+    ];
+  }
+
+  List<HealthData> getTemperatureData() {
+    return [
+      HealthData('12:00 AM', 36.5),
+      HealthData('1:00 AM', 36.7),
+      HealthData('2:00 AM', 36.4),
+      // Add more data points here
+    ];
+  }
+}
+
+class HealthData {
+  HealthData(this.time, this.value);
+
+  final String time;
+  final double value;
 }

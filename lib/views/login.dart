@@ -21,26 +21,26 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void showRegistrationFailedMessage() {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text(
+      SnackBar(
+        content: const Text(
           'Registration failed.',
           style: TextStyle(fontSize: 18),
         ),
         duration: Duration(seconds: 4),
-        backgroundColor: Color(0xFFA087BC),
+        backgroundColor: customLilac,
       ),
     );
   }
 
   void showLoginFailedMessage() {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text(
+      SnackBar(
+        content: const Text(
           'Incorrect email or password.',
           style: TextStyle(fontSize: 18),
         ),
         duration: Duration(seconds: 4),
-        backgroundColor: Color(0xFFA087BC),
+        backgroundColor: customLilac,
       ),
     );
   }
@@ -57,8 +57,8 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: customWhite,
       appBar: AppBar(
           title: const Text(
-            'Welcome to Hue',
-            style: TextStyle(fontSize: 30),
+            'DreamScape',
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
           backgroundColor: customLilac,
           foregroundColor: customWhite,
@@ -123,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
         }
       },
       style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xff735DA5),
+          backgroundColor: customPurple,
           foregroundColor: Colors.white,
           minimumSize: const Size(120, 55)),
       child: const Text(
@@ -167,7 +167,7 @@ class _LoginScreenState extends State<LoginScreen> {
         }
       },
       style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xff735DA5),
+          backgroundColor: customPurple,
           foregroundColor: Colors.white,
           minimumSize: const Size(120, 55)),
       child: const Text(
@@ -221,12 +221,11 @@ class _LoginScreenState extends State<LoginScreen> {
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Container(
-          width: 200,
-          height: 230,
+          width: 235,
+          height: 240,
           decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('images/moon-companion.png'),
-                  fit: BoxFit.cover)),
+                  image: AssetImage('assets/login.png'), fit: BoxFit.cover)),
         ));
   }
 }
