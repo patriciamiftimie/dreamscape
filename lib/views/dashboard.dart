@@ -15,7 +15,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dashboard'),
+        title: const Text('Dashboard'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -68,13 +68,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     onPressed: () {
                       // Add functionality for "Turn off all devices"
                     },
-                    child: Text('Turn Off All Devices'),
+                    child: const Text('Turn Off All Devices'),
                   ),
                   ElevatedButton(
                     onPressed: () {
                       // Add functionality for "Good Night Mode"
                     },
-                    child: Text('Good Night Mode'),
+                    child: const Text('Good Night Mode'),
                   ),
                 ],
               ),

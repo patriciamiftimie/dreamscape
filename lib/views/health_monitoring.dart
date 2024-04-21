@@ -15,7 +15,7 @@ class _HealthScreenState extends State<HealthScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Health'),
+        title: const Text('Health'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -68,13 +68,13 @@ class _HealthScreenState extends State<HealthScreen> {
                     onPressed: () {
                       // Add functionality for "Turn off all devices"
                     },
-                    child: Text('Turn Off All Devices'),
+                    child: const Text('Turn Off All Devices'),
                   ),
                   ElevatedButton(
                     onPressed: () {
                       // Add functionality for "Good Night Mode"
                     },
-                    child: Text('Good Night Mode'),
+                    child: const Text('Good Night Mode'),
                   ),
                 ],
               ),

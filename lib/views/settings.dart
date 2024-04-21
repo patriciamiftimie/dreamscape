@@ -15,7 +15,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings'),
+        title: const Text('Settings'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -68,13 +68,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     onPressed: () {
                       // Add functionality for "Turn off all devices"
                     },
-                    child: Text('Turn Off All Devices'),
+                    child: const Text('Turn Off All Devices'),
                   ),
                   ElevatedButton(
                     onPressed: () {
                       // Add functionality for "Good Night Mode"
                     },
-                    child: Text('Good Night Mode'),
+                    child: const Text('Good Night Mode'),
                   ),
                 ],
               ),

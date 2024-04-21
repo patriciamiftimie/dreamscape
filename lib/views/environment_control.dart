@@ -15,7 +15,7 @@ class _EnvironmentScreenState extends State<EnvironmentScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Environment'),
+        title: const Text('Environment'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -68,13 +68,13 @@ class _EnvironmentScreenState extends State<EnvironmentScreen> {
                     onPressed: () {
                       // Add functionality for "Turn off all devices"
                     },
-                    child: Text('Turn Off All Devices'),
+                    child: const Text('Turn Off All Devices'),
                   ),
                   ElevatedButton(
                     onPressed: () {
                       // Add functionality for "Good Night Mode"
                     },
-                    child: Text('Good Night Mode'),
+                    child: const Text('Good Night Mode'),
                   ),
                 ],
               ),
