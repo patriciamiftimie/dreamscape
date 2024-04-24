@@ -72,9 +72,7 @@ class _HealthScreenState extends State<HealthScreen> {
               ),
             ),
             ElevatedButton(
-              onPressed: () {
-                // Functionality to sync with other health apps
-              },
+              onPressed: () {},
               child: Text('Sync with Health Apps'),
             ),
           ],
@@ -88,7 +86,6 @@ class _HealthScreenState extends State<HealthScreen> {
       HealthData('12:00 AM', 70),
       HealthData('1:00 AM', 72),
       HealthData('2:00 AM', 68),
-      // Add more data points here
     ];
   }
 
@@ -97,7 +94,6 @@ class _HealthScreenState extends State<HealthScreen> {
       HealthData('12:00 AM', 36.5),
       HealthData('1:00 AM', 36.7),
       HealthData('2:00 AM', 36.4),
-      // Add more data points here
     ];
   }
 }
