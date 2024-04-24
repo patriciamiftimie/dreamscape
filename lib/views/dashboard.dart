@@ -25,7 +25,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 child: Column(
                   children: <Widget>[
                     ListTile(
-                      //leading: Icon(Icons.timer, color: customPurple, size: 30),
                       title: Text('Real-Time Overview',
                           style: TextStyle(
                               fontSize: 18,
@@ -51,24 +50,24 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         Icons.water_drop,
                         color: customPurple,
                       ),
-                      title: Text('Humidity'),
-                      subtitle: Text('45%'),
+                      title: const Text('Humidity'),
+                      subtitle: const Text('45%'),
                     ),
                     ListTile(
                       leading: Icon(
                         Icons.wb_sunny,
                         color: customPurple,
                       ),
-                      title: Text('Light Level'),
-                      subtitle: Text('Moderate'),
+                      title: const Text('Light Level'),
+                      subtitle: const Text('Moderate'),
                     ),
                     ListTile(
                       leading: Icon(
                         Icons.spa,
                         color: customPurple,
                       ),
-                      title: Text('Aromatherapy Diffuser'),
-                      subtitle: Text('On - Sandalwood'),
+                      title: const Text('Aromatherapy Diffuser'),
+                      subtitle: const Text('On - Sandalwood'),
                     ),
                   ],
                 ),
@@ -113,7 +112,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
                 child: ListTile(
                   contentPadding:
-                      EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
                   leading:
                       Icon(Icons.nights_stay, color: customLilac, size: 30),
                   title: Text(
