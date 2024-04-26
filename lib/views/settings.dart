@@ -17,8 +17,8 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  bool pushNotificationsEnabled = false; // Example state for push notifications
-  double optimalTemperature = 18.3; // Default optimal temperature
+  bool pushNotificationsEnabled = false;
+  double optimalTemperature = 18.3;
   final TextEditingController tempController = TextEditingController();
 
   @override
@@ -65,9 +65,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView(
@@ -75,12 +72,34 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ListTile(
               title: const Text('Optimal Temperature (°C)'),
               subtitle: Text('$optimalTemperature °C'),
+              leading: const Icon(Icons.device_thermostat_rounded),
+              trailing: IconButton(
+                icon: const Icon(Icons.edit),
+                onPressed: _showEditTemperatureDialog,
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.color_lens),
+              title: const Text('Theme'),
+              subtitle: const Text('Serene (Default)'),
+              onTap: () {},
+              trailing: IconButton(
+                icon: const Icon(Icons.edit),
+                onPressed: _showEditTemperatureDialog,
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.language),
+              title: const Text('Language'),
+              subtitle: const Text('English'),
+              onTap: () {},
               trailing: IconButton(
                 icon: const Icon(Icons.edit),
                 onPressed: _showEditTemperatureDialog,
               ),
             ),
             SwitchListTile(
+              activeColor: customAzure,
               title: const Text('Push Notifications'),
               value: pushNotificationsEnabled,
               onChanged: (bool value) {
@@ -90,19 +109,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
               },
             ),
             const Divider(),
-            Linkify(
-              onOpen: (link) async {
-                if (await canLaunchUrl(Uri.parse(link.url))) {
-                  await launchUrl(Uri.parse(link.url));
-                } else {
-                  throw 'Could not launch $link';
-                }
-              },
-              text:
-                  "Visit helpful mental health resources online.\n\nMindfulness: https://www.nhs.uk/mental-health/self-help/tips-and-support/mindfulness/",
-              style: const TextStyle(fontSize: 16),
-              linkStyle:
-                  TextStyle(color: Theme.of(context).colorScheme.secondary),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Linkify(
+                onOpen: (link) async {
+                  if (await canLaunchUrl(Uri.parse(link.url))) {
+                    await launchUrl(Uri.parse(link.url));
+                  } else {
+                    throw 'Could not launch $link';
+                  }
+                },
+                text:
+                    "Need more support? Visit online resources.\n\nSleep hygiene: https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/how-to-fall-asleep-faster-and-sleep-better/\n\nBedtime meditation: https://www.nhs.uk/live-well/sleep-and-tiredness/bedtime-meditation/",
+                style: const TextStyle(fontSize: 16),
+                linkStyle: TextStyle(color: customLilac),
+              ),
             ),
             const Divider(),
             TextButton(
@@ -113,13 +134,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       builder: (context) => const PrivacyPolicyPage()),
                 );
               },
-              child: const Text("View Privacy Policy"),
+              child: Text(
+                "View Privacy Policy",
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: customLilac),
+              ),
             ),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: customPurple,
+                  foregroundColor: Colors.white,
+                  minimumSize: const Size(120, 45)),
               onPressed: () {
                 signOutUser();
               },
-              child: const Text('Log out'),
+              child: const Text(
+                'Log out',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
             ),
           ],
         ),
